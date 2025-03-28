@@ -220,12 +220,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+--- näitab nime ja DepartmentId 
 select distinct Name, DepartmentId from Employees
 
----?
+--- arvutab tabeli Employees veeru Salary väärtuste summa
 select sum(cast(Salary as int)) from Employees
----?
+--- leiab Employees tabelist kõige väiksema palga
 select min(cast(Salary as int)) from Employees
 
 
@@ -238,7 +238,7 @@ add DepartmentId
 int null
 
 
---?
+--Lisame tabelisse Employees veeru MiddleName
 alter table Employees
 add MiddleName nvarchar(30)
 
