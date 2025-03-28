@@ -16,3 +16,22 @@ sisestame andmed tabelisse Department
 sisestame andmed tabelisse Employees
 
 ![image](https://github.com/user-attachments/assets/2089cae3-d882-41cf-be28-92cd76e3c38d)
+
+
+![image](https://github.com/user-attachments/assets/76d5eced-39e5-407b-aee6-55f5e639d5e9)
+
+Kõik, kes ei ela Gothamis
+
+![image](https://github.com/user-attachments/assets/8c5cddec-e9e8-42cf-be7f-144659678446)
+
+kõik, kelle vanus on 100, 50 või 20
+
+![image](https://github.com/user-attachments/assets/ca454582-206c-4424-b2e2-53a2cfbdd06a)
+
+--- igast reast võtab esimeses veerus täidetud lahtri ja kuvab ainult seda
+
+![image](https://github.com/user-attachments/assets/cf4b422c-518b-4021-bea1-7e3136e94a6f)
+
+koik from Employees, Department
+
+![image](https://github.com/user-attachments/assets/a7914ec5-995a-479a-a02a-5c222eed26a2)
