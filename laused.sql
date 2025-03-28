@@ -56,11 +56,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- eemaldame võõrvõtme
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- sisestame andmed tabelisse Gender
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -75,7 +75,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisame Age välja tabelisse Person
 alter table Person
 add Age nvarchar(10)
 
@@ -84,7 +84,7 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--lisame kontrollpiirangu Age veerule tabelis Person
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
