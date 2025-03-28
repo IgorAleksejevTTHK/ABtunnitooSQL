@@ -102,7 +102,16 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- uuendame tabeli Person 
+UPDATE Person SET Age = 25, City = 'Gotham' WHERE Id = 1;
+UPDATE Person SET Age = 30, City = 'New York' WHERE Id = 2;
+UPDATE Person SET Age = 35, City = 'Metropolis' WHERE Id = 3;
+UPDATE Person SET Age = 40, City = 'Central City' WHERE Id = 4;
+UPDATE Person SET Age = 45, City = 'Star City' WHERE Id = 5;
+UPDATE Person SET Age = 50, City = 'Gotham' WHERE Id = 6;
+
+
+-- kõik, kes elab Gothamis
 select * from Person where City = 'Gotham'
 
 
@@ -110,24 +119,24 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+--kõik, kelle vanus on 100, 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+---City algab tähega 'n', email kus on "@"
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- näitab kõik, kellel Emailil puudub "@"
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--nimid, mis ei alga tähtedega W, A või S tähega
 select * from Person where Name like '[^WAS]%'
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
@@ -136,23 +145,23 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- kuvab vanuse ja nime kolme esimese kirje kohta tabelis Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- kuvab tabelist Person pooled kirjed
 select top 50 percent * from Person
---?
+--järjestame Person tabeli vanuse järgi
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--arvutab Person tabeli Age väärtuste summa
 select sum(cast(Age as int)) from Person
 
---?
+--kuvab Person tabeli väikseima vanuse
 select min(cast(Age as int)) from Person
 
---?
+--leiab Person tabelist vanuse maksimaalse väärtuse, teisendades Age veeru täisarvuks
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -176,7 +185,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--sisestame andmed tabelisse department
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
