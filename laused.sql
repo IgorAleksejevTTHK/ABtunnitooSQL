@@ -102,6 +102,14 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
+-- uuendame tabeli Person 
+UPDATE Person SET Age = 25, City = 'Gotham' WHERE Id = 1;
+UPDATE Person SET Age = 30, City = 'New York' WHERE Id = 2;
+UPDATE Person SET Age = 35, City = 'Metropolis' WHERE Id = 3;
+UPDATE Person SET Age = 40, City = 'Central City' WHERE Id = 4;
+UPDATE Person SET Age = 45, City = 'Star City' WHERE Id = 5;
+UPDATE Person SET Age = 50, City = 'Gotham' WHERE Id = 6;
+
 -- ?
 select * from Person where City = 'Gotham'
 
