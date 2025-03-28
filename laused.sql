@@ -8,10 +8,11 @@
 -- db loomine
 create database Tarpv24
 
---?
+--db kustutamine
 DRop DataBASE Tarpv24
 
---?
+--tabeli Gender loomine
+use Tarpv24
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -32,11 +33,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- lisame võõrvõtme, et tabelid oleksid omavahel seotud
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- lisame andmed tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -55,11 +56,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- eemaldame võõrvõtme
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- sisestame andmed tabelisse Gender
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -74,7 +75,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisame Age välja tabelisse Person
 alter table Person
 add Age nvarchar(10)
 
@@ -83,14 +84,14 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--lisame kontrollpiirangu Age veerule tabelis Person
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+---- kustutame kirje Id = 8 ja vaatame uuendatud tabelit Person
 select * from Person
 go
 delete from Person where Id = 8
@@ -101,7 +102,16 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- uuendame tabeli Person 
+UPDATE Person SET Age = 25, City = 'Gotham' WHERE Id = 1;
+UPDATE Person SET Age = 30, City = 'New York' WHERE Id = 2;
+UPDATE Person SET Age = 35, City = 'Metropolis' WHERE Id = 3;
+UPDATE Person SET Age = 40, City = 'Central City' WHERE Id = 4;
+UPDATE Person SET Age = 45, City = 'Star City' WHERE Id = 5;
+UPDATE Person SET Age = 50, City = 'Gotham' WHERE Id = 6;
+
+
+-- kõik, kes elab Gothamis
 select * from Person where City = 'Gotham'
 
 
@@ -109,13 +119,13 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+--kõik, kelle vanus on 100, 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+---City algab tähega 'n', email kus on "@"
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
