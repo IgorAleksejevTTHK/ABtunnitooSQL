@@ -185,7 +185,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--sisestame andmed tabelisse department
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -238,7 +238,7 @@ add DepartmentId
 int null
 
 
---?
+--Lisame tabelisse Employees veeru MiddleName
 alter table Employees
 add MiddleName nvarchar(30)
 
